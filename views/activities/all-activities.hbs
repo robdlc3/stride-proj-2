@@ -1,8 +1,9 @@
 <h2>My Activities</h2>
 
-{{#each acitivity}}
 
-<a href="/activities/activity-details{{_id}}">
+{{#each activity}}
+
+<a href="/activities/activity-details/{{_id}}">
     <div>
         <h4> {{name}}</h4>
         <img class="activity-photo" src="{{imageUrl}}" alt="my activity">

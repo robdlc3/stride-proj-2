@@ -3,7 +3,7 @@ var router = express.Router();
 
 const { isLoggedIn } = require('../middleware/route-guard')
 
-const Actvity = require('../models/Activity');
+const Activity = require('../models/Activity');
 
 router.get('/add-activity', (req, res, next) => {
     res.render('activities/add-activity.hbs')
