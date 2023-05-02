@@ -7,7 +7,7 @@ const activitySchema = new Schema(
         description: { type: String },
         imageUrl: { type: String },
         owner: { type: Schema.Types.ObjectId, ref: "User" },
-        reviews: [{ type: Schema.Types.ObjectId, ref: "Review" }];
+        reviews: [{ type: Schema.Types.ObjectId, ref: "Review" }]
     }
 );
 
