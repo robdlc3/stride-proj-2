@@ -37,4 +37,19 @@ router.get('/all-activities', (req, res, next) => {
         })
 })
 
+router.get('/activity-details/:id', (req, res, next) => {
+    Activity.findById(req.params.id)
+        .populate('owner')
+        .populate({
+            path: "reviews",
+            populate: { path: "user" }
+        })
+        .then((foundActivity) => {
+            res.render('activities/activity-details.hbs', foundActivity)
+        })
+        .catch((err) => {
+            console.log(err)
+        })
+})
+
 module.exports = router;

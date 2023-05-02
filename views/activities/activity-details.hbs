@@ -1,0 +1,38 @@
+<h2>Activity Details </h2>
+
+<img class="activity-picture" src="{{imgUrl}}" alt="activity-picture">
+
+<h3>{{name}}</h3>
+
+<p>{{description}}</p>
+
+<h6>Activity by: {{owner.fullName}}</h6>
+
+<hr>
+
+<h4>Comments</h4>
+
+<form action="/reviews/add-review/{{_id}} " method="post">
+    <label for="">Add Comment</label>
+    <input id="comment" name="comment" type="text">
+    <button type="submit">Submit Comment</button>
+</form>
+
+
+{{#if reviews}}
+
+{{#each reviews}}
+
+<p>{{comment}}</p>
+<h6>- {{user.fullName}}</h6>
+
+<br>
+
+{{/each}}
+
+
+{{else}}
+
+<p>No reviews</p>
+
+{{/if}}
