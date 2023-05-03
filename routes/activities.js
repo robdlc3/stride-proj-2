@@ -12,13 +12,13 @@ router.get('/add-activity', (req, res, next) => {
     res.render('activities/add-activity.hbs')
 })
 
-router.post('/add-activity', isLoggedIn, (req, res, next) => {
+router.post('/add-activity', isLoggedIn, fileUploader.single('activity-cover-image'), (req, res, next) => {
     const { name, description, imageUrl } = req.body
 
     Activity.create({
         name,
         description,
-        imageUrl,
+        imageUrl: req.file.path,
         owner: req.session.user._id
     })
         .then((createdActivity) => {
