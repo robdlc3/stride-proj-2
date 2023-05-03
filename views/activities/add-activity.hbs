@@ -1,6 +1,6 @@
 <h2>Add Activity</h2>
 
-<form action="/activities/add-activity" method="post">
+<form action="/activities/add-activity" method="post" enctype="multipart/form-data">
 
     <label for="name">Name of Activity</label>
     <input id="name" type="text" name="name">
@@ -11,7 +11,8 @@
     {{!-- <label for="imageURL">Image</label>
     <input id="imageUrl" type="text" name="imageURL"> --}}
     <input type="file" name="activity-cover-image" />
-    <form action="/movies/create" method="post" enctype="multipart/form-data"> </form>
+
+    {{!-- <form action="/movies/create" method="post" enctype="multipart/form-data"> </form> --}}
 
 
     <button type="submit">Add Activity</button>
