@@ -57,5 +57,68 @@ router.get('/activity-details/:id', (req, res, next) => {
 })
 
 
+// working on delete 5P Wednesday //
+router.get('/delete/:id', (req, res, next) => {
+    const { id } = req.params
+    Activity.findByIdAndDelete(id)
+        .then((post) => {
+            res.redirect('/activities/all-activities')
+        })
+        .catch((err) => {
+            console.log(err)
+        })
+})
+
+
+// router.post('/activities/:activityId/delete', (req, res, next) => {
+//     const { activityId } = req.params;
+
+//     Activity.findByIdAndDelete(activityId)
+//         .then(() => res.redirect('/activities'))
+//         .catch(error => next(error));
+// });
+
+
+
+
 
 module.exports = router;
+
+
+
+// working 4P Wednesday on edit activities
+
+// router.get('/activity-edit/:id', isLoggedIn, (req, res, next) => {
+//     Activity.findById(req.params.id)
+//         .then((activity) => {
+//             res.render('activities/edit-activity.hbs', { activity });
+//         })
+//         .catch((err) => {
+//             console.log(err);
+//         });
+// });
+
+// router.post('/activity-edit/:id', isLoggedIn, fileUploader.single('activity-cover-image'), (req, res, next) => {
+//     const { name, description } = req.body;
+//     const imageUrl = req.file ? req.file.path : req.body.existingImage;
+
+//     Activity.findByIdAndUpdate(
+//         req.params.id,
+//         {
+//             name,
+//             description,
+//             imageUrl
+//         },
+//         { new: true }
+//     )
+//         .then((updatedActivity) => {
+//             console.log(updatedActivity);
+//             res.redirect(`/activities/activity-details/${updatedActivity._id}`);
+//         })
+//         .catch((err) => {
+//             console.log(err);
+//         });
+// });
+
+// working 4P Wednesday on edit
+
