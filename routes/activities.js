@@ -5,6 +5,9 @@ const { isLoggedIn } = require('../middleware/route-guard')
 
 const Activity = require('../models/Activity');
 
+// ********* require fileUploader in order to use it *********
+const fileUploader = require('../config/cloudinary');
+
 router.get('/add-activity', (req, res, next) => {
     res.render('activities/add-activity.hbs')
 })
@@ -30,6 +33,7 @@ router.post('/add-activity', isLoggedIn, (req, res, next) => {
 router.get('/all-activities', (req, res, next) => {
     Activity.find()
         .then((activities) => {
+            console.log(activities)
             res.render('activities/all-activities.hbs', { activities })
         })
         .catch((err) => {
