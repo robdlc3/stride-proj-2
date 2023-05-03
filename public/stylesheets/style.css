@@ -82,7 +82,7 @@ label {
 }
 
 input[type="text"],
-input[type="file"] {
+select {
   font-size: 1.2rem;
   padding: 0.5rem;
   border: none;
@@ -90,6 +90,10 @@ input[type="file"] {
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
   width: 100%;
   margin-bottom: 1rem;
+}
+
+input[type="file"] {
+  margin-top: 1rem;
 }
 
 button[type="submit"] {
@@ -112,6 +116,7 @@ button[type="submit"]:hover {
   background-color: #3e8e41;
   /* Darker Green */
 }
+
 
 /* all activities styling */
 
