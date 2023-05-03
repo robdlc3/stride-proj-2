@@ -8,11 +8,14 @@
     {{!-- adding drop down thing for categories --}}
 
     <select name="category" id="">
-        <option value="Run">run</option>
-        <option value="Walk">walk</option>
-        <option value="Bike">bike</option>
-        <option value="Hike">hike</option>
+        <option value="" disabled selected>Type of workout</option>
+        <option value="Run">Run</option>
+        <option value="Walk">Walk</option>
+        <option value="Bike">Bike</option>
+        <option value="Hike">Hike</option>
     </select>
+
+
 
     <label for="description">Description:</label>
     <input id="description" type="text" name="description">
@@ -20,6 +23,14 @@
     {{!-- <label for="imageURL">Image</label>
     <input id="imageUrl" type="text" name="imageURL"> --}}
     <input type="file" name="activity-cover-image" />
+
+    <label for="date" class="form-label">Date:</label>
+    <input type="date" id="date" name="date" class="form-control">
+
+    <label for="time" class="form-label">Time:</label>
+    <input type="time" id="time" name="time" class="form-control">
+
+
 
     {{!-- <form action="/movies/create" method="post" enctype="multipart/form-data"> </form> --}}
 
