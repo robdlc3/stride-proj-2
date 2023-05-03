@@ -1,6 +1,24 @@
-body {
+/* body {
   padding: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+} */
+
+body {
+  background-color: #f2f2f2;
+  font-family: Arial, sans-serif;
+  text-align: center;
+}
+
+h1 {
+  font-size: 3rem;
+  color: #333;
+  margin-top: 2rem;
+}
+
+p {
+  font-size: 1.5rem;
+  color: #666;
+  margin-bottom: 2rem;
 }
 
 a {

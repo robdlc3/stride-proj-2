@@ -18,6 +18,7 @@ var reviewsRouter = require('./routes/reviews');
 var app = express();
 
 // view engine setup
+
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'hbs');
 
@@ -80,5 +81,7 @@ mongoose
   .catch((err) => {
     console.error("Error connecting to mongo: ", err);
   });
+
+
 
 module.exports = app;
