@@ -3,8 +3,14 @@
 <img class="activity-picture" src="{{imageUrl}}" alt="activity-picture">
 
 <h3>{{name}}</h3>
+{{!-- adding date and time 12P Thursdsay --}}
+<p>{{date}} {{time}}</p>
+
+{{!-- adding date and time 12P Thursdsay --}}
 
 <p>{{description}}</p>
+
+
 
 <h6>Activity by: {{owner.fullName}}</h6>
 
@@ -18,11 +24,11 @@
 
 <h4>Comments</h4>
 
-<form action="/reviews/add-review/{{_id}} " method="post">
+{{!-- <form action="/reviews/add-review/{{_id}} " method="post">
     <label for="">Add Comment</label>
     <input id="comment" name="comment" type="text">
     <button type="submit">Submit Comment</button>
-</form>
+</form> --}}
 
 
 
@@ -41,6 +47,11 @@
 
 {{else}}
 
-<p>No reviews</p>
+<p>No comments</p>
 
 {{/if}}
+<form action="/reviews/add-review/{{_id}} " method="post">
+    <label for="">Add Comment:</label>
+    <input id="comment" name="comment" type="text">
+    <button type="submit">Submit Comment</button>
+</form>
