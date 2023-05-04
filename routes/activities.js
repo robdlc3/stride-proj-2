@@ -61,7 +61,8 @@ router.get('/activity-details/:id', (req, res, next) => {
 
 
 
-// working on Edit at 8A Thursday ---//
+// completed Edit 11A Thursday ---//
+
 router.get('/edit/:id', (req, res, next) => {
     const { id } = req.params;
 
@@ -91,7 +92,7 @@ router.post('/edit/:id', fileUploader.single('activity-cover-image'), (req, res,
         });
 })
 
-// working on Edit at 8A Thursday ---//
+// completed Edit 11A Thursday ---//
 
 
 
