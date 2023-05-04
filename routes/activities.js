@@ -13,13 +13,15 @@ router.get('/add-activity', (req, res, next) => {
 })
 
 router.post('/add-activity', isLoggedIn, fileUploader.single('activity-cover-image'), (req, res, next) => {
-    const { name, description, imageUrl } = req.body
+    const { name, description, imageUrl, date, time } = req.body
 
     Activity.create({
         name,
         description,
         imageUrl: req.file.path,
-        owner: req.session.user._id
+        owner: req.session.user._id,
+        date,
+        time
     })
         .then((createdActivity) => {
             console.log("charmander: ", createdActivity)
@@ -49,6 +51,7 @@ router.get('/activity-details/:id', (req, res, next) => {
             populate: { path: "user" }
         })
         .then((foundActivity) => {
+            console.log("found activity!!!", foundActivity)
             res.render('activities/activity-details.hbs', foundActivity)
         })
         .catch((err) => {
@@ -57,7 +60,41 @@ router.get('/activity-details/:id', (req, res, next) => {
 })
 
 
-// working on delete 5P Wednesday //
+
+// working on Edit at 8A Thursday ---//
+router.get('/edit/:id', (req, res, next) => {
+    const { id } = req.params;
+
+    Activity.findById(id)
+        .then((foundActivity) => {
+            console.log("Found the activity: ", foundActivity)
+            res.render('activities/activity-edit.hbs', foundActivity)
+        })
+        .catch((err) => {
+            console.log(err)
+        })
+})
+
+
+router.post('/edit/:id', fileUploader.single('activity-cover-image'), (req, res, next) => {
+    const { id } = req.params;
+    const { name, description, owner, reviews, date, time } = req.body;
+
+    Activity.findByIdAndUpdate(id, { name, description, imageUrl: req.file.path, owner, reviews, date, time },
+        { new: true })
+        .then((updatedActivity) => {
+            console.log("Updated activity", updatedActivity);
+            res.redirect(`/activities/activity-details/${updatedActivity._id}`);
+        })
+        .catch((err) => {
+            console.log(err);
+        });
+})
+
+// working on Edit at 8A Thursday ---//
+
+
+
 router.get('/delete/:id', (req, res, next) => {
     const { id } = req.params
     Activity.findByIdAndDelete(id)
@@ -70,55 +107,13 @@ router.get('/delete/:id', (req, res, next) => {
 })
 
 
-// router.post('/activities/:activityId/delete', (req, res, next) => {
-//     const { activityId } = req.params;
-
-//     Activity.findByIdAndDelete(activityId)
-//         .then(() => res.redirect('/activities'))
-//         .catch(error => next(error));
-// });
-
-
-
 
 
 module.exports = router;
 
 
 
-// working 4P Wednesday on edit activities
 
-// router.get('/activity-edit/:id', isLoggedIn, (req, res, next) => {
-//     Activity.findById(req.params.id)
-//         .then((activity) => {
-//             res.render('activities/edit-activity.hbs', { activity });
-//         })
-//         .catch((err) => {
-//             console.log(err);
-//         });
-// });
 
-// router.post('/activity-edit/:id', isLoggedIn, fileUploader.single('activity-cover-image'), (req, res, next) => {
-//     const { name, description } = req.body;
-//     const imageUrl = req.file ? req.file.path : req.body.existingImage;
 
-//     Activity.findByIdAndUpdate(
-//         req.params.id,
-//         {
-//             name,
-//             description,
-//             imageUrl
-//         },
-//         { new: true }
-//     )
-//         .then((updatedActivity) => {
-//             console.log(updatedActivity);
-//             res.redirect(`/activities/activity-details/${updatedActivity._id}`);
-//         })
-//         .catch((err) => {
-//             console.log(err);
-//         });
-// });
-
-// working 4P Wednesday on edit
 
