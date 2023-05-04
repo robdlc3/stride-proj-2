@@ -24,11 +24,11 @@
 
 <h4>Comments</h4>
 
-<form action="/reviews/add-review/{{_id}} " method="post">
+{{!-- <form action="/reviews/add-review/{{_id}} " method="post">
     <label for="">Add Comment</label>
     <input id="comment" name="comment" type="text">
     <button type="submit">Submit Comment</button>
-</form>
+</form> --}}
 
 
 
@@ -50,3 +50,8 @@
 <p>No comments</p>
 
 {{/if}}
+<form action="/reviews/add-review/{{_id}} " method="post">
+    <label for="">Add Comment:</label>
+    <input id="comment" name="comment" type="text">
+    <button type="submit">Submit Comment</button>
+</form>

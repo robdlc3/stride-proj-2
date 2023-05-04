@@ -79,9 +79,13 @@ router.get('/edit/:id', (req, res, next) => {
 
 router.post('/edit/:id', fileUploader.single('activity-cover-image'), (req, res, next) => {
     const { id } = req.params;
-    const { name, description, owner, reviews, date, time } = req.body;
-
-    Activity.findByIdAndUpdate(id, { name, description, imageUrl: req.file.path, owner, reviews, date, time },
+    const { name, description, owner, reviews, date, time, originalImage } = req.body;
+    console.log("this is req.body!", req.body)
+    let image = originalImage;
+    if (req.file) {
+        image = req.file.path
+    }
+    Activity.findByIdAndUpdate(id, { name, description, imageUrl: image, owner, reviews, date, time },
         { new: true })
         .then((updatedActivity) => {
             console.log("Updated activity", updatedActivity);
