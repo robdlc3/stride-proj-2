@@ -8,6 +8,7 @@ const Activity = require('../models/Activity');
 // ********* require fileUploader in order to use it *********
 const fileUploader = require('../config/cloudinary.js')
 
+
 router.get('/add-activity', (req, res, next) => {
     res.render('activities/add-activity.hbs')
 })
