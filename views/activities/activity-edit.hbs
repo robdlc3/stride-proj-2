@@ -2,12 +2,12 @@
 
 <form action="/activities/edit/{{_id}}" method="post" enctype="multipart/form-data">
 
-    {{!-- enctype="multipart/form-data" --}}
+
 
     <label for="name">Name of Activity:</label>
     <input value="{{name}}" id="name" type="text" name="name">
 
-    {{!-- adding drop down thing for categories --}}
+
 
     <select name="category" id="">
         <option value="" disabled selected>Type of workout</option>
@@ -22,8 +22,7 @@
     <label for="description">Description:</label>
     <input value="{{description}}" id="description" type="text" name="description">
 
-    {{!-- <label for="imageURL">Image</label>
-    <input id="imageUrl" type="text" name="imageURL"> --}}
+
     <img src="{{imageUrl}}" alt="image activity">
     <input type="file" name="activity-cover-image" />
 
@@ -35,12 +34,8 @@
 
     <input value="{{imageUrl}}" type=" text" name="originalImage" hidden>
 
-    {{!-- <form action="/movies/create" method="post" enctype="multipart/form-data"> </form> --}}
 
-    {{!-- <form action="activities/edit/{{_id}}" method="post" enctype="multipart/form-data"> --}}
-        <button type="submit">Save Changes</button>
-        {{!--
-    </form> --}}
-  
+    <button type="submit">Save Changes</button>
+
 
 </form>
