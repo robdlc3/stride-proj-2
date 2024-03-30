@@ -13,7 +13,7 @@ const activitySchema = new Schema(
     }
 );
 
-// adding date and time 12P Thursdsay //
+
 function getFormattedDate(dateString) {
     const date = new Date(dateString);
     const month = date.toLocaleString('default', { month: 'long' });
@@ -22,6 +22,6 @@ function getFormattedDate(dateString) {
     return `${month} ${day}, ${year}`;
 }
 
-// adding date and time 12P Thursdsay //
+
 
 module.exports = model('Activity', activitySchema)
